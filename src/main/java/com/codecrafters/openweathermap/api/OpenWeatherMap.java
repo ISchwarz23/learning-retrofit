@@ -35,11 +35,11 @@ public class OpenWeatherMap {
         module.addDeserializer(Temperature.class, new TemperatureDeserializer());
         mapper.registerModule(module);
 
-        Retrofit retrofit = new Retrofit.Builder()
+        openWeatherMapService = new Retrofit.Builder()
                 .baseUrl("http://api.openweathermap.org/data/" + apiVersion + "/")
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
-                .build();
-        openWeatherMapService = retrofit.create(OpenWeatherMapService.class);
+                .build()
+                .create(OpenWeatherMapService.class);
     }
 
     public WeatherInfo getCurrentWeather(String city) {
@@ -60,14 +60,14 @@ public class OpenWeatherMap {
         openWeatherMapService.getCurrentWeather(apiKey, city).enqueue(new Callback<WeatherInfo>() {
             @Override
             public void onResponse(final Call<WeatherInfo> call, final Response<WeatherInfo> response) {
-                if(successCallback != null) {
+                if (successCallback != null) {
                     successCallback.onSuccess(response.body());
                 }
             }
 
             @Override
             public void onFailure(final Call<WeatherInfo> call, final Throwable t) {
-                if(failCallback != null) {
+                if (failCallback != null) {
                     failCallback.onFail(t);
                 }
             }
