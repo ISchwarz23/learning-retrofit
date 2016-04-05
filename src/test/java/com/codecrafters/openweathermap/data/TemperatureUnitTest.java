@@ -1,4 +1,4 @@
-package com.codecrafters.openweathermap;
+package com.codecrafters.openweathermap.data;
 
 import static org.junit.Assert.*;
 
