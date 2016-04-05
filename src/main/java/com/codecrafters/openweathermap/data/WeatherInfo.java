@@ -43,6 +43,14 @@ public class WeatherInfo {
         return snowInfo;
     }
 
+    public List<MetaInfo> getMetaInfo() {
+        return metaInfo;
+    }
+
+    public CloudInfo getCloudInfo() {
+        return cloudInfo;
+    }
+
     @Override
     public String toString() {
         return "WeatherInfo{" +
