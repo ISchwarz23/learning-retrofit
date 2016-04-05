@@ -3,6 +3,9 @@ package com.codecrafters.openweathermap.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,7 @@ import java.util.List;
 public class WeatherInfo {
 
     @JsonProperty("dt")
-    private long date;
+    private ZonedDateTime dateTime;
     @JsonProperty("main")
     private TemperatureInfo temperatureInfo;
     @JsonProperty("weather")
@@ -27,8 +30,8 @@ public class WeatherInfo {
     @JsonProperty("clouds")
     private CloudInfo cloudInfo = new CloudInfo();
 
-    public long getDate() {
-        return date;
+    public ZonedDateTime getDateTime() {
+        return dateTime;
     }
 
     public TemperatureInfo getTemperatureInfo() {
@@ -54,7 +57,7 @@ public class WeatherInfo {
     @Override
     public String toString() {
         return "WeatherInfo{" +
-                "date=" + date +
+                "dateTime=" + dateTime +
                 ", temperatureInfo=" + temperatureInfo +
                 ", metaInfo=" + metaInfo +
                 ", rainInfo=" + rainInfo +

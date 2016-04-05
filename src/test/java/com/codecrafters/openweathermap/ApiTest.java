@@ -3,6 +3,7 @@ package com.codecrafters.openweathermap;
 import com.codecrafters.openweathermap.api.OpenWeatherMap;
 import com.codecrafters.openweathermap.data.CurrentWeatherInfo;
 import com.codecrafters.openweathermap.data.ForecastWeatherInfo;
+import com.codecrafters.openweathermap.data.WeatherInfo;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -26,6 +27,8 @@ public class ApiTest {
         CurrentWeatherInfo currentWeatherInfo = openWeatherMap.getCurrentWeather("Friedrichshafen");
         assertEquals("Friedrichshafen", currentWeatherInfo.getCity().getName());
         assertNotNull(currentWeatherInfo.getWeatherInfo().getTemperatureInfo());
+
+        printWeatherInfo(currentWeatherInfo.getWeatherInfo());
     }
 
     @Test
@@ -33,6 +36,12 @@ public class ApiTest {
         ForecastWeatherInfo forecastWeatherInfo = openWeatherMap.getForecastWeather("Friedrichshafen");
         assertEquals("Friedrichshafen", forecastWeatherInfo.getCity().getName());
         assertNotNull(forecastWeatherInfo.getWeatherInfos().get(0).getTemperatureInfo());
+
+        forecastWeatherInfo.getWeatherInfos().forEach(ApiTest::printWeatherInfo);
+    }
+
+    private static void printWeatherInfo(WeatherInfo weatherInfo) {
+        System.out.println(weatherInfo.getDateTime().toLocalDateTime() + " -> " + weatherInfo.getTemperatureInfo().getTemperature().inCelsius());
     }
 
 }

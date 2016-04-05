@@ -10,6 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
 
 /**
  * Created by Ingo on 30.03.2016.
@@ -32,6 +33,7 @@ public class OpenWeatherMap {
         SimpleModule module = new SimpleModule();
         module.addDeserializer(Temperature.class, new TemperatureDeserializer());
         module.addDeserializer(CurrentWeatherInfo.class, new CurrentWeatherInfoDeserializer(mapper));
+        module.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
         mapper.registerModule(module);
 
         openWeatherMapService = new Retrofit.Builder()
