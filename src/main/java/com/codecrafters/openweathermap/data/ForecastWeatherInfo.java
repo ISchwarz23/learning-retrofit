@@ -12,12 +12,17 @@ import java.util.List;
  * @author ISchwarz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WeatherForecastInfo {
+public class ForecastWeatherInfo {
 
     @JsonProperty("city")
     private City city;
     @JsonProperty("list")
     private List<WeatherInfo> weatherInfos = new ArrayList<>();
+
+
+    private ForecastWeatherInfo() {
+        // used should not be able to create instance
+    }
 
     public City getCity() {
         return city;

@@ -1,8 +1,6 @@
 package com.codecrafters.openweathermap.api;
 
-import com.codecrafters.openweathermap.data.Temperature;
-import com.codecrafters.openweathermap.data.WeatherForecastInfo;
-import com.codecrafters.openweathermap.data.WeatherInfo;
+import com.codecrafters.openweathermap.data.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import retrofit2.Call;
@@ -33,6 +31,7 @@ public class OpenWeatherMap {
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
         module.addDeserializer(Temperature.class, new TemperatureDeserializer());
+        module.addDeserializer(CurrentWeatherInfo.class, new CurrentWeatherInfoDeserializer(mapper));
         mapper.registerModule(module);
 
         openWeatherMapService = new Retrofit.Builder()
@@ -42,9 +41,9 @@ public class OpenWeatherMap {
                 .create(OpenWeatherMapService.class);
     }
 
-    public WeatherInfo getCurrentWeather(String city) {
+    public CurrentWeatherInfo getCurrentWeather(String city) {
         try {
-            Call<WeatherInfo> call = openWeatherMapService.getCurrentWeather(apiKey, city);
+            Call<CurrentWeatherInfo> call = openWeatherMapService.getCurrentWeather(apiKey, city);
             return call.execute().body();
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,21 +51,21 @@ public class OpenWeatherMap {
         }
     }
 
-    public void getCurrentWeather(String city, SuccessCallback<WeatherInfo> callback) {
+    public void getCurrentWeather(String city, SuccessCallback<CurrentWeatherInfo> callback) {
         getCurrentWeather(city, callback, null);
     }
 
-    public void getCurrentWeather(String city, final SuccessCallback<WeatherInfo> successCallback, final FailCallback failCallback) {
-        openWeatherMapService.getCurrentWeather(apiKey, city).enqueue(new Callback<WeatherInfo>() {
+    public void getCurrentWeather(String city, final SuccessCallback<CurrentWeatherInfo> successCallback, final FailCallback failCallback) {
+        openWeatherMapService.getCurrentWeather(apiKey, city).enqueue(new Callback<CurrentWeatherInfo>() {
             @Override
-            public void onResponse(final Call<WeatherInfo> call, final Response<WeatherInfo> response) {
+            public void onResponse(final Call<CurrentWeatherInfo> call, final Response<CurrentWeatherInfo> response) {
                 if (successCallback != null) {
                     successCallback.onSuccess(response.body());
                 }
             }
 
             @Override
-            public void onFailure(final Call<WeatherInfo> call, final Throwable t) {
+            public void onFailure(final Call<CurrentWeatherInfo> call, final Throwable t) {
                 if (failCallback != null) {
                     failCallback.onFail(t);
                 }
@@ -74,9 +73,9 @@ public class OpenWeatherMap {
         });
     }
 
-    public WeatherForecastInfo getForecastWeather(String city) {
+    public ForecastWeatherInfo getForecastWeather(String city) {
         try {
-            Call<WeatherForecastInfo> call = openWeatherMapService.getForecastWeather(apiKey, city);
+            Call<ForecastWeatherInfo> call = openWeatherMapService.getForecastWeather(apiKey, city);
             return call.execute().body();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,7 +1,5 @@
-package com.codecrafters.openweathermap.api;
+package com.codecrafters.openweathermap.data;
 
-import com.codecrafters.openweathermap.data.Temperature;
-import com.codecrafters.openweathermap.data.TemperatureUnit;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -13,10 +11,12 @@ import java.io.IOException;
 /**
  * Created by Ingo on 30.03.2016.
  */
-class TemperatureDeserializer extends JsonDeserializer<Temperature> {
+public class TemperatureDeserializer extends JsonDeserializer<Temperature> {
+
     @Override
-    public Temperature deserialize(final JsonParser jp, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Temperature deserialize(final JsonParser jp, final DeserializationContext ctxt) throws IOException {
         JsonNode node = jp.getCodec().readTree(jp);
         return new Temperature(node.numberValue().doubleValue(), TemperatureUnit.KELVIN);
     }
+
 }

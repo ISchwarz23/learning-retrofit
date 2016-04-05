@@ -17,7 +17,7 @@ public class WeatherInfo {
     @JsonProperty("dt")
     private long date;
     @JsonProperty("main")
-    private MainInfo mainInfo;
+    private TemperatureInfo temperatureInfo;
     @JsonProperty("weather")
     private List<MetaInfo> metaInfo = new ArrayList<>();
     @JsonProperty("rain")
@@ -31,8 +31,8 @@ public class WeatherInfo {
         return date;
     }
 
-    public MainInfo getMainInfo() {
-        return mainInfo;
+    public TemperatureInfo getTemperatureInfo() {
+        return temperatureInfo;
     }
 
     public PrecipitationInfo getRainInfo() {
@@ -47,7 +47,7 @@ public class WeatherInfo {
     public String toString() {
         return "WeatherInfo{" +
                 "date=" + date +
-                ", mainInfo=" + mainInfo +
+                ", temperatureInfo=" + temperatureInfo +
                 ", metaInfo=" + metaInfo +
                 ", rainInfo=" + rainInfo +
                 ", snowInfo=" + snowInfo +
@@ -56,14 +56,14 @@ public class WeatherInfo {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class MainInfo {
+    public static class TemperatureInfo {
 
         @JsonProperty("temp")
-        public Temperature temperature;
+        private Temperature temperature;
         @JsonProperty("temp_min")
-        public Temperature minimalTemperature;
+        private Temperature minimalTemperature;
         @JsonProperty("temp_max")
-        public Temperature maximalTemperature;
+        private Temperature maximalTemperature;
 
         public Temperature getTemperature() {
             return temperature;

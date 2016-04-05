@@ -8,7 +8,7 @@ public class Temperature {
     private final double temperature;
     private final TemperatureUnit unit;
 
-    public Temperature(final double temperature, final TemperatureUnit unit) {
+    Temperature(final double temperature, final TemperatureUnit unit) {
         this.temperature = temperature;
         this.unit = unit;
     }

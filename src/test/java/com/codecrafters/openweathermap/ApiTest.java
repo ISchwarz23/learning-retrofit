@@ -1,9 +1,11 @@
 package com.codecrafters.openweathermap;
 
 import com.codecrafters.openweathermap.api.OpenWeatherMap;
-import com.codecrafters.openweathermap.data.WeatherForecastInfo;
+import com.codecrafters.openweathermap.data.CurrentWeatherInfo;
+import com.codecrafters.openweathermap.data.ForecastWeatherInfo;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -11,32 +13,25 @@ import org.junit.Test;
  */
 public class ApiTest {
 
-    private OpenWeatherMap openWeatherMap;
+    private static OpenWeatherMap openWeatherMap;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         openWeatherMap = new OpenWeatherMap("51e065dfd5df34b351f6c352f486e807");
     }
 
     @Test
     public void shouldGiveCurrentWeatherByCity() {
-        openWeatherMap.getCurrentWeather("Friedrichshafen", ApiTest::assertNotNull, ApiTest::fail);
+        CurrentWeatherInfo currentWeatherInfo = openWeatherMap.getCurrentWeather("Friedrichshafen");
+        Assert.assertEquals("Friedrichshafen", currentWeatherInfo.getCity().getName());
+        Assert.assertNotNull(currentWeatherInfo.getWeatherInfo().getTemperatureInfo());
     }
 
     @Test
     public void shouldGiveForecastWeatherByCity() {
-        WeatherForecastInfo weatherInfo = openWeatherMap.getForecastWeather("Friedrichshafen");
-        assertNotNull(weatherInfo);
-    }
-
-    private static void assertNotNull(Object result) {
-        System.out.println(result);
-        Assert.assertNotNull(result);
-    }
-
-    private static void fail(Throwable t) {
-        System.out.println(t.getMessage());
-        Assert.fail();
+        ForecastWeatherInfo forecastWeatherInfo = openWeatherMap.getForecastWeather("Friedrichshafen");
+        Assert.assertEquals("Friedrichshafen", forecastWeatherInfo.getCity().getName());
+        Assert.assertNotNull(forecastWeatherInfo.getWeatherInfos().get(0).getTemperatureInfo());
     }
 
 }

@@ -22,6 +22,18 @@ public class City {
     @JsonProperty("population")
     private int population;
 
+    private City() {
+        // used should not be able to create instance
+    }
+
+    City(int id, String name, Coordinates coordinates, String country, int population) {
+        this.id = id;
+        this.name = name;
+        this.coord = coordinates;
+        this.country = country;
+        this.population = population;
+    }
+
     public int getId() {
         return id;
     }

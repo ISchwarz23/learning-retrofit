@@ -14,6 +14,11 @@ public class Coordinates {
     @JsonProperty("lat")
     private double latitude;
 
+
+    private Coordinates() {
+        // used should not be able to create instance
+    }
+
     public double getLongitude() {
         return longitude;
     }
