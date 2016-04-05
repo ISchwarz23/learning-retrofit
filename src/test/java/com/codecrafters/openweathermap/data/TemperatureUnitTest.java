@@ -1,9 +1,8 @@
 package com.codecrafters.openweathermap.data;
 
-import static org.junit.Assert.*;
-
-import com.codecrafters.openweathermap.data.TemperatureUnit;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Ingo on 30.03.2016.

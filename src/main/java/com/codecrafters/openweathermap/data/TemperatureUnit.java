@@ -9,9 +9,11 @@ public enum TemperatureUnit {
         public double toCelsius(double kelvin) {
             return kelvin - 273.15;
         }
+
         public double toKelvin(double kelvin) {
             return kelvin;
         }
+
         public double toFahreinheit(double kelvin) {
             return CELSIUS.toFahreinheit(KELVIN.toCelsius(kelvin));
         }
@@ -21,9 +23,11 @@ public enum TemperatureUnit {
         public double toKelvin(double celsius) {
             return celsius + 273.15;
         }
+
         public double toCelsius(double celsius) {
             return celsius;
         }
+
         public double toFahreinheit(double celsius) {
             return celsius * 9 / 5 + 32;
         }
@@ -33,9 +37,11 @@ public enum TemperatureUnit {
         public double toKelvin(double fahrenheit) {
             return CELSIUS.toKelvin(FAHRENHEIT.toCelsius(fahrenheit));
         }
+
         public double toCelsius(double fahrenheit) {
             return (fahrenheit - 32) * 5 / 9;
         }
+
         public double toFahreinheit(double fahrenheit) {
             return fahrenheit;
         }

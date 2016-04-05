@@ -1,8 +1,5 @@
 package com.codecrafters.openweathermap.data;
 
-import com.codecrafters.openweathermap.data.City;
-import com.codecrafters.openweathermap.data.Coordinates;
-import com.codecrafters.openweathermap.data.CurrentWeatherInfo;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;

@@ -2,7 +2,6 @@ package com.codecrafters.openweathermap.api;
 
 import com.codecrafters.openweathermap.data.CurrentWeatherInfo;
 import com.codecrafters.openweathermap.data.ForecastWeatherInfo;
-import com.codecrafters.openweathermap.data.WeatherInfo;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
