@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Test the implementation of {@link Temperature}.
+ * Tests the correctness of {@link Temperature}.
  *
  * @author ISchwarz
  */

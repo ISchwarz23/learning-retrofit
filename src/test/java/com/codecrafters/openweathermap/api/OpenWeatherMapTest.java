@@ -1,6 +1,5 @@
-package com.codecrafters.openweathermap;
+package com.codecrafters.openweathermap.api;
 
-import com.codecrafters.openweathermap.api.OpenWeatherMap;
 import com.codecrafters.openweathermap.data.CurrentWeatherInfo;
 import com.codecrafters.openweathermap.data.ForecastWeatherInfo;
 import com.codecrafters.openweathermap.data.WeatherInfo;
@@ -11,10 +10,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by Ingo on 30.03.2016.
+ * Tests the correctness of {@link OpenWeatherMap}.
+ *
+ * @author ISchwarz
  */
-public class ApiTest {
+public class OpenWeatherMapTest {
 
+    private static final String CITY_NAME = "Friedrichshafen";
     private static OpenWeatherMap openWeatherMap;
 
     @BeforeClass
@@ -24,8 +26,8 @@ public class ApiTest {
 
     @Test
     public void shouldGiveCurrentWeatherByCity() {
-        CurrentWeatherInfo currentWeatherInfo = openWeatherMap.getCurrentWeather("Friedrichshafen");
-        assertEquals("Friedrichshafen", currentWeatherInfo.getCity().getName());
+        CurrentWeatherInfo currentWeatherInfo = openWeatherMap.getCurrentWeather(CITY_NAME);
+        assertEquals(CITY_NAME, currentWeatherInfo.getCity().getName());
         assertNotNull(currentWeatherInfo.getWeatherInfo().getTemperatureInfo());
 
         printWeatherInfo(currentWeatherInfo.getWeatherInfo());
@@ -33,11 +35,11 @@ public class ApiTest {
 
     @Test
     public void shouldGiveForecastWeatherByCity() {
-        ForecastWeatherInfo forecastWeatherInfo = openWeatherMap.getForecastWeather("Friedrichshafen");
-        assertEquals("Friedrichshafen", forecastWeatherInfo.getCity().getName());
+        ForecastWeatherInfo forecastWeatherInfo = openWeatherMap.getForecastWeather(CITY_NAME);
+        assertEquals(CITY_NAME, forecastWeatherInfo.getCity().getName());
         assertNotNull(forecastWeatherInfo.getWeatherInfos().get(0).getTemperatureInfo());
 
-        forecastWeatherInfo.getWeatherInfos().forEach(ApiTest::printWeatherInfo);
+        forecastWeatherInfo.getWeatherInfos().forEach(OpenWeatherMapTest::printWeatherInfo);
     }
 
     private static void printWeatherInfo(WeatherInfo weatherInfo) {

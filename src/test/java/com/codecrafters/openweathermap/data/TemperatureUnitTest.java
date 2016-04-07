@@ -5,7 +5,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Ingo on 30.03.2016.
+ * Tests the correctness of {@link TemperatureUnit}.
+ *
+ * @author ISchwarz
  */
 public class TemperatureUnitTest {
 
