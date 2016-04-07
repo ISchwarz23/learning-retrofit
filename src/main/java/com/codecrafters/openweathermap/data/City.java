@@ -66,4 +66,5 @@ public final class City implements Serializable {
                 ", population=" + population +
                 '}';
     }
+
 }

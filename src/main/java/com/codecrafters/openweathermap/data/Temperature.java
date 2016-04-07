@@ -38,4 +38,5 @@ public final class Temperature implements Serializable {
                 ", unit=" + unit +
                 '}';
     }
+
 }

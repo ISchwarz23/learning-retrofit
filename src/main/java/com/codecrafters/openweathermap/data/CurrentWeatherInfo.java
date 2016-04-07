@@ -10,7 +10,6 @@ public final class CurrentWeatherInfo implements Serializable {
     private WeatherInfo weatherInfo;
     private City city;
 
-
     private CurrentWeatherInfo() {
         // used should not be able to create instance
     }
@@ -35,4 +34,5 @@ public final class CurrentWeatherInfo implements Serializable {
                 ", city=" + city +
                 '}';
     }
+
 }

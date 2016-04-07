@@ -16,7 +16,6 @@ public final class Coordinates implements Serializable {
     @JsonProperty("lat")
     private double latitude;
 
-
     private Coordinates() {
         // used should not be able to create instance
     }
@@ -36,4 +35,5 @@ public final class Coordinates implements Serializable {
                 ", latitude=" + latitude +
                 '}';
     }
+
 }

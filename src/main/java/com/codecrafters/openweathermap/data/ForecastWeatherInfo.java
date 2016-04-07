@@ -20,7 +20,6 @@ public final class ForecastWeatherInfo implements Serializable {
     @JsonProperty("list")
     private List<WeatherInfo> weatherInfos = new ArrayList<>();
 
-
     private ForecastWeatherInfo() {
         // used should not be able to create instance
     }
@@ -40,4 +39,5 @@ public final class ForecastWeatherInfo implements Serializable {
                 ", weatherInfos=" + weatherInfos +
                 '}';
     }
+
 }
