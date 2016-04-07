@@ -2,12 +2,14 @@ package com.codecrafters.openweathermap.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Data-Object that represents kartesian coordinates.
  *
  * @author ISchwarz
  */
-public class Coordinates {
+public final class Coordinates implements Serializable {
 
     @JsonProperty("lon")
     private double longitude;

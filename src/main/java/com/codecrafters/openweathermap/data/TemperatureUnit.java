@@ -1,9 +1,11 @@
 package com.codecrafters.openweathermap.data;
 
+import java.io.Serializable;
+
 /**
  * Created by Ingo on 30.03.2016.
  */
-public enum TemperatureUnit {
+public enum TemperatureUnit implements Serializable {
 
     KELVIN {
         public double toCelsius(double kelvin) {

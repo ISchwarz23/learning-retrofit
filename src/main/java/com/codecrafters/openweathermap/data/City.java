@@ -3,13 +3,15 @@ package com.codecrafters.openweathermap.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Data-Object representing a city.
  *
  * @author ISchwarz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class City {
+public final class City implements Serializable {
 
     @JsonProperty("id")
     private int id;

@@ -1,9 +1,11 @@
 package com.codecrafters.openweathermap.data;
 
+import java.io.Serializable;
+
 /**
  * Created by Ingo on 30.03.2016.
  */
-public class Temperature {
+public final class Temperature implements Serializable {
 
     private final double temperature;
     private final TemperatureUnit unit;

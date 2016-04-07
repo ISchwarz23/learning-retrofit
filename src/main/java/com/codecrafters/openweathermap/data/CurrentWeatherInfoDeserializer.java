@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by Ingo on 05.04.2016.
  */
-public class CurrentWeatherInfoDeserializer extends JsonDeserializer<CurrentWeatherInfo> {
+public final class CurrentWeatherInfoDeserializer extends JsonDeserializer<CurrentWeatherInfo> {
 
     private ObjectMapper mapper;
 

@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * Created by Ingo on 05.04.2016.
  */
-public class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
+public final class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
 
     @Override
     public ZonedDateTime deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {

@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by Ingo on 30.03.2016.
  */
-public class TemperatureDeserializer extends JsonDeserializer<Temperature> {
+public final class TemperatureDeserializer extends JsonDeserializer<Temperature> {
 
     @Override
     public Temperature deserialize(final JsonParser jp, final DeserializationContext ctxt) throws IOException {

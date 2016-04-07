@@ -3,8 +3,7 @@ package com.codecrafters.openweathermap.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  * @author ISchwarz
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WeatherInfo {
+public final class WeatherInfo implements Serializable {
 
     @JsonProperty("dt")
     private ZonedDateTime dateTime;
@@ -67,7 +66,7 @@ public class WeatherInfo {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class TemperatureInfo {
+    public static final class TemperatureInfo implements Serializable {
 
         @JsonProperty("temp")
         private Temperature temperature;
@@ -100,7 +99,7 @@ public class WeatherInfo {
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class PrecipitationInfo {
+    public static final class PrecipitationInfo implements Serializable {
 
         @JsonProperty("3h")
         private double value;
@@ -119,7 +118,7 @@ public class WeatherInfo {
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class MetaInfo {
+    public static final class MetaInfo implements Serializable {
 
         @JsonProperty("all")
         private int id;
@@ -159,7 +158,7 @@ public class WeatherInfo {
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class CloudInfo {
+    public static final class CloudInfo implements Serializable {
 
         @JsonProperty("all")
         private int percentage;
@@ -177,7 +176,7 @@ public class WeatherInfo {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class WindInfo {
+    public static final class WindInfo implements Serializable {
 
         @JsonProperty("speed")
         private double speed;
