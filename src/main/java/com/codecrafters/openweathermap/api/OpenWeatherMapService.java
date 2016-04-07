@@ -7,7 +7,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Created by Ingo on 30.03.2016.
+ * The interface definition of the OpenWeatherMap-WebService.
+ *
+ * @author ISchwarz
  */
 interface OpenWeatherMapService {
 
