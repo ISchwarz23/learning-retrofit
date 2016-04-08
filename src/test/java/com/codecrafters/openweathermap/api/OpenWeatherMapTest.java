@@ -23,7 +23,7 @@ public class OpenWeatherMapTest {
 
     @BeforeClass
     public static void setUp() {
-        openWeatherMap = new OpenWeatherMap("51e065dfd5df34b351f6c352f486e807");
+        openWeatherMap = new OpenWeatherMap("b1b15e88fa797225412429c1c50c122a");
     }
 
     @Test
